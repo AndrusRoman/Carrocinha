@@ -27,10 +27,6 @@
             <input type="date" name="data_nascimento" id="data_nascimento">
         </div>
         <div>
-            <label for="idade">Idade</label>
-            <input type="number" name="idade" id="idade">
-        </div>
-        <div>
             <label for="castrado">O animal e castrado?</label>
             <br>
             <input type="radio" id="castrado" name="castrado" value="1">Sim

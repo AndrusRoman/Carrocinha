@@ -41,8 +41,8 @@
                 echo "<td>".$row['cep']."</td>"; 
                 echo "<td>".$row['nomecidade']."</td>";
                 echo "<td>".$row['estado']."</td>";
-                echo "<td><a href='alteraCliente.php?id=".$row['id']."'>Alterar</a></td>";
-                echo "<td><a href='deletaCliente.php?id=".$row['id']."'>Deletar</a></td>";
+                echo "<td><a href='./AlteraCliente.php?id=".$row['id']."'>Alterar</a></td>";
+                echo "<td><a href='./DeletaCliente.php?id=".$row['id']."'>Deletar</a></td>";
                 echo "</tr>";
             }
         ?>

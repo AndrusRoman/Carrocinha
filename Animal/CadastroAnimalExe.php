@@ -14,9 +14,14 @@
         $especie = $_POST['especie'];
         $raca = $_POST['raca'];
         $data_nascimento = $_POST['data_nascimento'];
-        $idade = $_POST['idade'];
         $castrado = $_POST['castrado'];
         $pessoa = $_POST['pessoa'];
+
+        $idade = new DateTime($data_nascimento);
+        $da = new DateTime();
+        $idade = $da->diff($idade);
+        $idade = $idade->y;
+
         echo "<h1>Dados do Cliente</h1>";
         echo "Nome: $nome<br>";
         echo "Especie: $especie<br>";
