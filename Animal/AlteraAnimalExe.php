@@ -7,7 +7,6 @@
     $data_nascimento = $_POST['data_nascimento'];
     $castrado = $_POST['castrado'];
     $pessoa = $_POST['pessoa'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./CssCadastro.css">
 </head>
 <body>
     <h1> Alteração de Animal</h1>
