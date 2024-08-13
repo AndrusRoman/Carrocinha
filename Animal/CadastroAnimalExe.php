@@ -10,6 +10,15 @@
 <body>
     <?php
         include('../Includes/conexao.php');
+        //UPLOAD FOTO
+        $nome_foto = "";
+        if(file_exists($_FILES['foto']['tmp_name'])){
+            $pasta_destino = 'fotos/';
+            $extensao = strtolower(substr($_FILES['foto']['name'], -4));
+            $nome_foto = $pasta_destino . date('Ymd-His').$extensao;
+            move_uploaded_file($_FILES['foto']['tmp_name'],$nome_foto);
+        }
+        //FIM UPLOAD
         $nome = $_POST['nome_animal'];
         $especie = $_POST['especie'];
         $raca = $_POST['raca'];
@@ -30,9 +39,10 @@
         echo "Idade: $idade<br>";
         echo "Castrado: $castrado<br>";
         echo "Pessoa: $pessoa<br>";
+        echo "Foto: $nome_foto<br>";
 
-        $sql = "INSERT INTO Animal (nome_animal, especie, raca, data_nascimento, idade, castrado, id_pessoa)";
-        $sql .= "VALUES('".$nome."','".$especie."','".$raca."','".$data_nascimento."','".$idade."','".$castrado."','".$pessoa."')";
+        $sql = "INSERT INTO Animal (nome_animal, especie, raca, data_nascimento, idade, castrado, id_pessoa, foto)";
+        $sql .= "VALUES('".$nome."','".$especie."','".$raca."','".$data_nascimento."','".$idade."','".$castrado."','".$pessoa."','".$nome_foto."')";
         echo $sql;
         $result = mysqli_query($con,$sql);
         if($result){

@@ -15,9 +15,19 @@
     <link rel="stylesheet" href="./CssCadastro.css">
 </head>
 <body>
-    <form action="AlteraAnimalExe.php" method="post">
+    <form action="AlteraAnimalExe.php" method="post" enctype="multipart/form-data">
         <fieldset>
         <legend>Altera Animal</legend>
+        <?php
+            if($row['foto'] != ""){
+                echo "<img src='".$row['foto']."' width='80' height='100'/>";
+            }
+
+        ?>
+        <div>
+            <label for="foto">Foto</label>
+           <input type="file" name="foto" id="foto" accept="image/*" /> 
+        </div>
         <div>
             <label for="nome_animal">Nome</label>
             <input type="text" name="nome_animal" id="nome_animal" value="<?php echo $row['nome_animal'] ?>">

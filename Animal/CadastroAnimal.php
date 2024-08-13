@@ -8,9 +8,13 @@
     <link rel="stylesheet" href="./CssCadastro.css">
 </head>
 <body>
-    <form action="CadastroAnimalExe.php" method="post">
+    <form action="CadastroAnimalExe.php" method="post" enctype="multipart/form-data"> <!-- Codificação para upload -->
         <fieldset>
         <legend>Cadastro Animal</legend>
+        <div>
+            <label for="foto">Foto</label>
+           <input type="file" name="foto" id="foto" accept="image/*" /> 
+        </div>
         <div>
             <label for="nome_animal">Nome</label>
             <input type="text" name="nome_animal" id="nome_animal">

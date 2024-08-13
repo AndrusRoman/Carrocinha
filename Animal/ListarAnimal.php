@@ -10,7 +10,7 @@
 <body>
     <?php
         include('../Includes/conexao.php');
-        $sql = "SELECT an.id_animal, an.nome_animal nomeanimal, an.especie, an.raca, an.data_nascimento, an.idade, an.castrado, pes.nome nomepessoa, pes.id 
+        $sql = "SELECT an.id_animal, an.nome_animal nomeanimal, an.especie, an.raca, an.data_nascimento, an.idade, an.castrado, pes.nome nomepessoa, pes.id, an.foto 
         FROM Animal an 
         LEFT JOIN Pessoa pes on pes.id = an.id_pessoa";
         $result = mysqli_query($con, $sql);
@@ -20,6 +20,7 @@
     <table align="center" border="1" width="500">
         <tr>
             <th>Código</th>
+            <th>Foto</th>
             <th>Nome</th>
             <th>Especie</th>
             <th>Raça</th>
@@ -35,6 +36,10 @@
             while($row = mysqli_fetch_array($result)){
                 echo "<tr>";
                 echo "<td>".$row['id_animal']."</td>";
+                if($row['foto'] == "")
+                    echo "<td></td>";
+                else
+                    echo "<td><img src='".$row['foto']."' width='80' height='100'/></td>";
                 echo "<td>".$row['nomeanimal']."</td>";
                 echo "<td>".$row['especie']."</td>";        
                 echo "<td>".$row['raca']."</td>";         
